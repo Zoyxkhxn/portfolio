@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            width: 80%;
+            max-width: 1200px;
+            padding: 60px 0;
+        }
+
+        /* Filters */
+        .portfolio-filters {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .portfolio-filters li {
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            background-color: #f7f7f7;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .portfolio-filters .filter-active,
+        .portfolio-filters li:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Portfolio Items */
+        .portfolio-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .portfolio-item {
+            width: calc(33.333% - 20px);
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            height: 200px; /* Fixed height for all portfolio items */
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%; /* Set height to 100% to match the container */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+            display: block;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 123, 255, 0.8);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .portfolio-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1); /* Enlarge the image on hover */
+        }
+
+        /* Plus Sign Overlay */
+        .plus-sign {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            font-size: 24px;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="portfolio">
+    <ul class="portfolio-filters">
+        <li class="filter-active" data-filter="*">All</li>
+        <li data-filter=".web">Hospital Management System</li>
+        <li data-filter=".graphic">Recruiting Management System</li>
+        <li data-filter=".branding">Plant Care Assistant</li>
+    </ul>
+
+    <div class="portfolio-items">
+        <!-- Hospital Management System -->
+        <div class="portfolio-item web">
+            <img src="assets/hms.png" alt="Hospital Management System">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms1.png" alt="Hospital Management System 1">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms2.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms3.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms5.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms6.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms7.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms8.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item web">
+            <img src="assets/hms9.png" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <!-- Add more items as needed -->
+
+        <!-- Recruiting Management System -->
+        <div class="portfolio-item graphic">
+            <img src="assets/rms1.png" alt="Recruiting Management System">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item graphic">
+            <img src="assets/rms2.jpg" alt="Recruiting Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item graphic">
+            <img src="assets/rms3.jpg" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item graphic">
+            <img src="assets/rms4.jpg" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item graphic">
+            <img src="assets/rms5.jpg" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item gr">
+            <img src="assets/rms6.jpg" alt="Hospital Management System 2">
+            <span class="plus-sign">+</span>
+        </div>
+        
+        <!-- Add more items as needed -->
+
+        <!-- Plant Care Assistant -->
+        <div class="portfolio-item branding">
+            <img src="assets/pc1.png" alt="Plant Care Assistant">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item branding">
+            <img src="assets/pc2.png" alt="Plant Care Assistant 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item branding">
+            <img src="assets/pc3.png" alt="Plant Care Assistant 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item branding">
+            <img src="assets/pc4.png" alt="Plant Care Assistant 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item branding">
+            <img src="assets/pc5.png" alt="Plant Care Assistant 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <div class="portfolio-item branding">
+            <img src="assets/pc6.png" alt="Plant Care Assistant 2">
+            <span class="plus-sign">+</span>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    // Modal logic
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("modalImg");
+    const images = document.querySelectorAll(".portfolio-item img");
+    const plusSigns = document.querySelectorAll(".plus-sign");
+    const closeModal = document.querySelector(".close-modal");
+
+    // Function to open modal with clicked image
+    const openModal = (imgSrc) => {
+        modal.style.display = "flex";
+        modalImg.src = imgSrc;
+    };
+
+    // Add event listeners to images
+    images.forEach(img => {
+        img.addEventListener("click", () => openModal(img.src));
+    });
+
+    // Add event listeners to plus signs
+    plusSigns.forEach(plus => {
+        plus.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const img = plus.previousElementSibling;
+            openModal(img.src);
+        });
+    });
+
+    // Close modal
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Portfolio Filter Logic
+    const filterButtons = document.querySelectorAll('.portfolio-filters li');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelector('.filter-active').classList.remove('filter-active');
+            button.classList.add('filter-active');
+
+            const filterValue = button.getAttribute('data-filter');
+            portfolioItems.forEach(item => {
+                if (filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
